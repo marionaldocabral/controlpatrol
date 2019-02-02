@@ -1,0 +1,100 @@
+.titulo{
+	font-size: 2em;
+	text-align: center;
+	font-weight: bold;
+}
+
+.regular{
+		
+}
+
+.celula{
+	width: 300px;
+	text-align: center;
+	height: 50px;
+	display: table-cell;
+	vertical-align: middle;
+	font-size: 2em;
+	color: white;
+}
+
+.grade{
+	min-height: 250px;
+}
+
+td{
+	text-align: center;
+	vertical-align: middle;
+	padding: 3px;
+}
+
+tr{
+	
+}
+
+table{
+	width: 300px;
+	margin-left: 10px;
+}
+
+h4{
+	text-align: center;
+}
+
+.tempor{
+	background: green;
+	color: white;
+	font-size: 2em;
+}
+
+.tempod{
+	background: green;
+	color: white;
+	font-size: 2em;
+}
+.pronta{
+	background: #5D1313;
+
+}
+
+.naopronta{
+	background: #DA5858;
+
+}
+.ocultar{
+	background: white;
+}
+.atrasada{
+	background: red;
+}
+.pisca{
+	background: white;
+}
+.timer{
+	width: 150px;
+}
+
+.legenda{
+	border: 1px solid gray;
+	padding-left: 10px;
+	width: 1140px;
+}
+
+.parte{
+	display: inline-block;
+	margin-left: 20px;
+}
+
+.marcador{
+	width: 15px;
+	height: 15px;
+	display: inline-block;
+}
+
+.seq{
+	display: inline-block;
+}
+
+.caixa-alta{
+	text-transform: uppercase;
+}

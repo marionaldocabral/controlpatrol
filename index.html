@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="shortcut icon" href="img/brasao.png" type="image/x-icon" />
+
+	<title>Controle de Patrulhas</title>
+
+	<link rel="stylesheet" type="text/css" href="bootstrap/css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="css/style.css">
+	
+	<script type="text/javascript" src="bootstrap/js/bootstrap.min.js"></script>	
+	<script type="text/javascript" src="jquery/jquery.min.js"></script>
+	<script type="text/javascript" src="js/script.js"></script>
+</head>
+<body>
+	<div class="container titulo">
+		CONTROLE DE PATRULHAS		
+	</div>
+	<center>
+		<div class="legenda" ">
+			<div class="parte"">
+				<div class="seq">LEGENDA: </div>
+			</div>		
+			<div class="parte">
+				<div class="marcador" style="background: #DA5858;"></div>
+				<div class="seq">B30 Pendente</div>
+			</div>
+			<div class="parte">
+				<div class="marcador" style="background: #5D1313;"></div>
+				<div class="seq">B30 OK</div>
+			</div>
+			<div class="parte">
+				<div class="marcador" style="background: green;"></div>
+				<div class="seq">Temporizador</div>
+			</div>
+			<div class="parte">
+				<div class="marcador" style="background: red;"></div>
+				<div class="seq">Tempo excedido</div>
+			</div>
+			<div class="parte">
+				<div class="seq" id="qtdptr"></div>
+			</div>
+			<div class="parte">
+				<div class="seq" id="qtdefe"></div>
+			</div>
+		</div>		
+	</center>
+	<br>
+	<div class="container">
+		<div class="row">
+		    <div class="col-sm grade" style="border: 1px solid gray;">
+		    	<h4 id="titb32">B32/DESCANSO</h4>
+		        <table class="table table-bordered">
+			    	<tbody>
+			    		<p id="b32"></p>
+			    	</tbody>
+			    </table>
+			</div>
+			<div class="col-sm grade" style="border: 1px solid gray; margin-left: 5px; margin-right: 5px;">
+				<h4 id="titter">TERRENO</h4>
+			    <table class="table table-bordered">
+			    	<tbody>
+			    		<p id="terreno"></p>
+			    	</tbody>
+			    </table>
+			</div>
+			<div class="col-sm grade" style="border: 1px solid gray;">
+				<h4 id="titb30">BETA30</h4>
+			   	<table class="table table-bordered">
+			    	<tbody>
+			    		<p id="b30"></p>
+			    	</tbody>
+			    </table>
+			</div>
+		</div>
+	</div>
+	<div class="container" style="border: 1px solid gray; margin-top: 5px; max-height: 800px; overflow: scroll;">
+		<H4>DETALHAMENTO</H4>
+		<table class="table table-striped" id="tdet">
+		    <thead>
+		        <tr>
+		            <th style="text-align: center">Horário</th>
+		            <th style="text-align: center">Patrulhas</th>
+		            <th style="text-align: center">Quantidade</th>
+		            <th style="text-align: center">Efetivo</th>
+		        </tr>
+		    </thead>
+		    <tbody>
+		    </tbody>
+		</table>
+	</div>
+	<div class="container" style="border: 1px solid gray; margin-top: 5px; max-height: 800px; overflow: scroll;">
+		<H4>HISTÓRICO</H4>
+		<table class="table table-striped" id="thist">
+		    <thead>
+		        <tr>
+		            <th style="text-align: center">Patrulha</th>
+		            <th style="text-align: center">Local</th>
+		            <th style="text-align: center">Entrada</th>
+		            <th style="text-align: center">Saída</th>
+		            <th style="text-align: center">Efetivo</th>
+		            <th style="text-align: center">Instante</th>
+		        </tr>
+		    </thead>
+		    <tbody>
+		    </tbody>
+		</table>
+	</div>
+	<div class="container" style="border: 1px solid gray; margin-top: 5px">
+		<h4>CONFIGURAÇÕES</h4>
+		<div class="row">
+			<div class="col-12">
+				<form>
+					<div class="form-group">
+					    <label for="cadastrar">CADASTRAR PATRULHAS - TEMPO (HH:MM:SS)</label>
+					    <input type="text" class="form-control" id="ptr" aria-describedby="numero" placeholder="Numeração" style="display: inline-block; width: 120px; margin-left: 5px; text-align: center">
+					    <input type="text" class="form-control enttempo" id="entrada" aria-describedby="entrada" placeholder="Entrada" style="display: inline-block; width: 90px; margin-left: 5px; text-align: center;">
+					    <input type="text" class="form-control enttempo" id="saida" aria-describedby="saida" placeholder="Saída" style="display: inline-block; width: 90px; margin-left: 5px; text-align: center;">
+					    <input type="number" class="form-control" id="efetivo" aria-describedby="efetivo" placeholder="Efetivo" min="1" style="display: inline-block; width: 90px; text-align: center;">
+					  	<a class="btn btn-success" id="cadastrar" style="color: white; font-weight: bold; display: inline-block; margin-left: 5px;">Cadastrar</a>
+					  	<a class="btn btn-warning" id="remover" style="color: white; font-weight: bold;">Remover</a>
+					  	<a class="btn btn-danger" id="limpar" style="color: white; font-weight: bold; margin-left: 20px;">Limpar</a>
+					</div>
+				</form>
+			</div>
+			<div class="col-12">			
+				<form>
+					<div class="form-group">
+						<label for="tempo">TEMPO B32/B30 (HH:MM:SS)</label>				
+						<input type="text" class="enttempo form-control" id="tempo32" style="display: inline-block; margin-left: 5px; width: 90px; text-align: center;" placeholder="BETA 32" title="BETA 32">		
+						<input type="text" class="enttempo form-control" id="tempo30" style="display: inline-block; width: 90px; text-align: center;" placeholder="BETA 30" title="BETA 30">
+						<a class="btn btn-success" id="salvar" style="display: inline-block; margin-left: 5px; color: white; font-weight: bold;">Salvar</a>
+					</div>
+				</form>		
+			</div>
+		</div>
+	</div>
+</body>
+</html>
